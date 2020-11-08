@@ -1,20 +1,36 @@
 {
-  "name": "tailwind-parcel",
+  "name": "tailwind-parcel-starter",
   "version": "1.0.0",
+  "description": "Front-end starter kit using the Parcel bundler",
   "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "serve": "parcel serve src/markup/index.pug",
-    "build": "parcel build src/markup/index.pug"
+  "dependencies": {
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.1.0",
-    "autoprefixer": "^9.3.1",
-    "cssnano": "^4.1.7",
-    "pug": "^2.0.3",
-    "tailwindcss": "^0.6.6"
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "http-server": "^0.12.3",
+    "parcel-bundler": "^1.12.4",
+    "rucksack-css": "^1.0.2",
+    "sass": "^1.29.0",
+    "pug": "^3.0.0",
+    "tailwindcss": "^1.9.6"
   },
-  "dependencies": {
-    "parcel-bundler": "^1.10.3"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run clean && parcel -p 8000 src/markup/index.pug",
+    "build": "npm run clean && npm run static && parcel build src/markup/index.pug --no-source-maps",
+    "serve": "http-server -p 8000 dist",
+    "clean": "rm -rf .cache dist",
+    "static": "mkdir -p dist && cp src/static/* dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pboi20/tailwind-parcel-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pboi20/tailwind-parcel-starter/issues"
+  },
+  "homepage": "https://github.com/pboi20/tailwind-parcel-starter#readme"
 }

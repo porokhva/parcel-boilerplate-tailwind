@@ -1,26 +1,50 @@
-# Pug+Tailwind CSS Parcel Starter Project
+# tailwind-parcel-starter
 
-- This is an example of a super simple Parcel setup for using [Tailwind CSS](https://tailwindcss.com).
-- Also using using [Pug](https://devhints.io/pug).
-- Thsi is an extended version of [clupprich's repo](https://github.com/clupprich/tailwind-parcel).
 
-To get started, clone the project and install the dependencies:
+A basic front-end starter template using the [Parcel bundler](https://github.com/parcel-bundler/parcel/).
+
+
+### Features
+
+- Zero configuration (Parcel defaults)
+- ES6+ project structure to single ES5 bundle
+- Basic Tailwind setup ready to be customized
+- SASS/SCSS support
+
+
+### Requirements
+
+- Node.js >= 10
+
+
+### Getting Started
 
 ```
-# Using npm
+git clone https://github.com/pboi20/tailwind-parcel-starter.git
+cd tailwind-parcel-starter
 npm install
-
-# Using Yarn
-yarn
 ```
 
-After that, start up Parcel:
+Alternatively, you could download the project as a [ZIP Archive](https://github.com/pboi20/tailwind-parcel-starter/archive/master.zip).
 
-```
-npm run serve
-```
 
-### Hints:
-- separator has been changed from ':' to '_' and '/' to 'o' because of pug limitations.
-    a responsive width class becomes lg_w-1o3
-- because of css plugins, you'll will have to refresh/save master.css anytime you add a new class to the markup (you're css file will be incredibly small eventually)
+### Available Scripts
+
+#### `npm run dev`
+
+Runs the project in development mode with hot reloading on `http://localhost:8000`.
+
+#### `npm run build`
+
+Builds the project for production to the `dist` folder.
+
+#### `npm run serve`
+
+Serve the production build on `http://localhost:8000`.
+
+
+### Disclaimer
+
+This is a work in progress :)
+
+[MIT License](https://github.com/pboi20/tailwind-parcel-starter/blob/master/LICENSE)

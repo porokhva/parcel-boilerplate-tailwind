@@ -1,17 +1,35 @@
-var tailwindcss = require('tailwindcss')
-var purgecss = require('@fullhuman/postcss-purgecss');
-var cssnano = require('cssnano');
-var autoprefixer = require('autoprefixer');
+const rucksack = require('rucksack-css');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 
-module.exports = {
-  plugins: [
-    tailwindcss('./tailwind.js'),
-    cssnano({
-      preset: 'default',
-    }),
+const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
+
+const plugins = [
+  rucksack(),
+  tailwindcss('tailwind.config.js'),
+  autoprefixer
+];
+
+if (!IS_DEVELOPMENT) {
+  const purgecss = require('@fullhuman/postcss-purgecss');
+
+  class TailwindExtractor {
+    static extract(content) {
+      return content.match(/[A-z0-9-:\/]+/g) || [];
+    }
+  }
+
+  plugins.push(
     purgecss({
-      content: ['./src/**/*.pug'],
-    }),
-    autoprefixer
-  ]
+      content: ['src/*.html'],
+      extractors: [
+        {
+            extractor: TailwindExtractor,
+            extensions: ['html']
+        }
+      ],
+    })
+  );
 }
+
+module.exports = { plugins }
