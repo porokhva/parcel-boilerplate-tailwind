@@ -1,6 +1,9 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @import "common/variables";
 @import "common/base";
+@tailwind components;
+.content {
+  @apply max-w-xl mx-auto;
+}
+@tailwind utilities;
